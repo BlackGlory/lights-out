@@ -74,19 +74,27 @@ setTimeout(draw, 0)
 document.addEventListener('keydown', (e) => {
   switch (e.keyCode) {
     case Key.Left:
-      if (x > 0) x--
+      if (x > 0) {
+        x--
+      }
       setTimeout(draw, 0)
       break
     case Key.Right:
-      if (x < 4) x++
+      if (x < 4) {
+        x++
+      }
       setTimeout(draw, 0)
       break
     case Key.Up:
-      if (y > 0) y--
+      if (y > 0) {
+        y--
+      }
       setTimeout(draw, 0)
       break
     case Key.Down:
-      if (y < 4) y++
+      if (y < 4) {
+        y++
+      }
       setTimeout(draw, 0)
       break
     case Key.Enter:
@@ -122,15 +130,36 @@ canvas.addEventListener('click', (e) => {
   function getLocation(value) {
     if (value <= 0 * 40 + padding + boxSize) {
       return 1
-    } else if (value >= 1 * 40 + padding && value <= 1 * 40 + padding + boxSize) {
+    }
+    
+    if (
+      value >= 1 * 40 + padding &&
+      value <= 1 * 40 + padding + boxSize
+    ) {
       return 2
-    } else if (value >= 2 * 40 + padding && value <= 2 * 40 + padding + boxSize) {
+    }
+    
+    if (
+      value >= 2 * 40 + padding &&
+      value <= 2 * 40 + padding + boxSize
+    ) {
       return 3
-    } else if (value >= 3 * 40 + padding && value <= 3 * 40 + padding + boxSize) {
+    }
+    
+    if (
+      value >= 3 * 40 + padding &&
+      value <= 3 * 40 + padding + boxSize
+    ) {
       return 4
-    } else if (value >= 4 * 40 + padding && value <= 4 * 40 + padding + boxSize) {
+    }
+    
+    if (
+      value >= 4 * 40 + padding &&
+      value <= 4 * 40 + padding + boxSize
+    ) {
       return 5
     }
+
     return 0
   }
 })
@@ -139,15 +168,19 @@ function changeMatrix() {
   const sx = x
   const sy = y
   matrix[sx][sy] = changeColor(matrix[sx][sy])
+
   if (sx > 0) {
     matrix[sx - 1][sy] = changeColor(matrix[sx - 1][sy])
   }
+
   if (sx < 4) {
     matrix[sx + 1][sy] = changeColor(matrix[sx + 1][sy])
   }
+
   if (sy > 0) {
     matrix[sx][sy - 1] = changeColor(matrix[sx][sy - 1])
   }
+
   if (sy < 4) {
     matrix[sx][sy + 1] = changeColor(matrix[sx][sy + 1])
   }
