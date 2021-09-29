@@ -5,7 +5,7 @@ const matrix = [
 , [1, 1, 1, 1, 1]
 , [1, 1, 1, 1, 1]
 ]
-var matrixString = matrix.toString()
+
 const win = [
   [5, 5, 5, 5, 5]
 , [5, 5, 5, 5, 5]
@@ -13,14 +13,15 @@ const win = [
 , [5, 5, 5, 5, 5]
 , [5, 5, 5, 5, 5]
 ]
-var winString = win.toString()
-var padding = 50
-var boxSize = 30
-  , boxBorder = 3
-var x = 2
-  , y = 2
-var leftTop = padding
-  , rightBottom = 4 * 40 + padding + boxSize
+
+const padding = 50
+const boxSize = 30
+const boxBorder = 3
+const leftTop = padding
+const rightBottom = 4 * 40 + padding + boxSize
+
+let x = 2
+let y = 2
 
 const Key = {
   Left: 37
@@ -64,103 +65,6 @@ const Color = {
   }
 }
 
-function changeColor(c) {
-  return c < Color.White
-       ? c + 1
-       : Color.Red
-}
-
-function changeMatrix() {
-  var sx = x
-    , sy = y
-  matrix[sx][sy] = changeColor(matrix[sx][sy])
-  if (sx > 0) {
-    matrix[sx - 1][sy] = changeColor(matrix[sx - 1][sy])
-  }
-  if (sx < 4) {
-    matrix[sx + 1][sy] = changeColor(matrix[sx + 1][sy])
-  }
-  if (sy > 0) {
-    matrix[sx][sy - 1] = changeColor(matrix[sx][sy - 1])
-  }
-  if (sy < 4) {
-    matrix[sx][sy + 1] = changeColor(matrix[sx][sy + 1])
-  }
-}
-
-function drawSelected() {
-  var xLeft = padding + x * 40 - 3
-    , xRight = padding + x * 40 + boxSize - 4
-  var yTop = padding + y * 40 - 3
-    , yBottom = padding + y * 40 + boxSize - 4
-  var background = Color.Selected.Background
-  var border = Color.Selected.Border
-
-  ctx.fillStyle = border
-  ctx.fillRect(xLeft, yTop, 7, 7)
-  ctx.fillRect(xRight, yTop, 7, 7)
-  ctx.fillRect(xLeft, yBottom, 7, 7)
-  ctx.fillRect(xRight, yBottom, 7, 7)
-  ctx.fillStyle = background
-  ctx.fillRect(xLeft + 2, yTop + 2, 3, 3)
-  ctx.fillRect(xRight + 2, yTop + 2, 3, 3)
-  ctx.fillRect(xLeft + 2, yBottom + 2, 3, 3)
-  ctx.fillRect(xRight + 2, yBottom + 2, 3, 3)
-}
-
-function drawBox(color, x, y) {
-  var background = Color.Box[color].Background
-  var border = Color.Box[color].Border
-  x = x * 40 + padding
-  y = y * 40 + padding
-  ctx.shadowBlur = 10
-  ctx.shadowColor = border
-  ctx.fillStyle = background
-  ctx.fillRect(x, y, boxSize, boxSize)
-  ctx.fillStyle = border
-  x += boxBorder
-  y += boxBorder
-  ctx.fillRect(x, y, boxSize - 2 * boxBorder, boxSize - 2 * boxBorder)
-  ctx.fillStyle = background
-  x += boxBorder
-  y += boxBorder
-  ctx.fillRect(x, y, boxSize - 4 * boxBorder, boxSize - 4 * boxBorder)
-  ctx.shadowBlur = 0
-}
-
-function draw() {
-  ctx.clearRect(0, 0, 300, 300)
-
-  drawSelected()
-  for (var x = 0; x < 5; x++) {
-    for (var y = 0; y < 5; y++) {
-      drawBox(matrix[x][y], x, y)
-    }
-  }
-}
-
-function checkMatrix() {
-  if (matrixString === winString) {
-    draw()
-    alert('恭喜您过关')
-  }
-}
-
-function getLocation(value) {
-  if (value <= 0 * 40 + padding + boxSize) {
-    return 1
-  } else if (value >= 1 * 40 + padding && value <= 1 * 40 + padding + boxSize) {
-    return 2
-  } else if (value >= 2 * 40 + padding && value <= 2 * 40 + padding + boxSize) {
-    return 3
-  } else if (value >= 3 * 40 + padding && value <= 3 * 40 + padding + boxSize) {
-    return 4
-  } else if (value >= 4 * 40 + padding && value <= 4 * 40 + padding + boxSize) {
-    return 5
-  }
-  return 0
-}
-
 const canvas = document.getElementById('canvas')
 const ctx = canvas.getContext('2d')
 ctx.shadowOffsetX = 0
@@ -194,7 +98,7 @@ document.addEventListener('keydown', (e) => {
 })
 
 canvas.addEventListener('click', (e) => {
-  var o = {
+  const o = {
     x: e.offsetX
   , y: e.offsetY
   }
@@ -204,8 +108,8 @@ canvas.addEventListener('click', (e) => {
     o.y >= leftTop &&
     o.y <= rightBottom
   ) {
-    var tx = getLocation(o.x)
-    var ty = getLocation(o.y)
+    const tx = getLocation(o.x)
+    const ty = getLocation(o.y)
     if (tx && ty) {
       x = tx - 1
       y = ty - 1
@@ -214,4 +118,102 @@ canvas.addEventListener('click', (e) => {
       checkMatrix()
     }
   }
+
+  function getLocation(value) {
+    if (value <= 0 * 40 + padding + boxSize) {
+      return 1
+    } else if (value >= 1 * 40 + padding && value <= 1 * 40 + padding + boxSize) {
+      return 2
+    } else if (value >= 2 * 40 + padding && value <= 2 * 40 + padding + boxSize) {
+      return 3
+    } else if (value >= 3 * 40 + padding && value <= 3 * 40 + padding + boxSize) {
+      return 4
+    } else if (value >= 4 * 40 + padding && value <= 4 * 40 + padding + boxSize) {
+      return 5
+    }
+    return 0
+  }
 })
+
+function changeMatrix() {
+  const sx = x
+  const sy = y
+  matrix[sx][sy] = changeColor(matrix[sx][sy])
+  if (sx > 0) {
+    matrix[sx - 1][sy] = changeColor(matrix[sx - 1][sy])
+  }
+  if (sx < 4) {
+    matrix[sx + 1][sy] = changeColor(matrix[sx + 1][sy])
+  }
+  if (sy > 0) {
+    matrix[sx][sy - 1] = changeColor(matrix[sx][sy - 1])
+  }
+  if (sy < 4) {
+    matrix[sx][sy + 1] = changeColor(matrix[sx][sy + 1])
+  }
+
+  function changeColor(c) {
+    return c < Color.White
+         ? c + 1
+         : Color.Red
+  }
+}
+
+function checkMatrix() {
+  if (JSON.stringify(matrix) === JSON.stringify(win)) {
+    draw()
+    alert('恭喜您过关')
+  }
+}
+
+function draw() {
+  ctx.clearRect(0, 0, 300, 300)
+
+  drawSelected()
+  for (let x = 0; x < 5; x++) {
+    for (let y = 0; y < 5; y++) {
+      drawBox(matrix[x][y], x, y)
+    }
+  }
+
+  function drawSelected() {
+    const xLeft = padding + x * 40 - 3
+    const xRight = padding + x * 40 + boxSize - 4
+
+    const yTop = padding + y * 40 - 3
+    const yBottom = padding + y * 40 + boxSize - 4
+    const background = Color.Selected.Background
+    const border = Color.Selected.Border
+
+    ctx.fillStyle = border
+    ctx.fillRect(xLeft, yTop, 7, 7)
+    ctx.fillRect(xRight, yTop, 7, 7)
+    ctx.fillRect(xLeft, yBottom, 7, 7)
+    ctx.fillRect(xRight, yBottom, 7, 7)
+    ctx.fillStyle = background
+    ctx.fillRect(xLeft + 2, yTop + 2, 3, 3)
+    ctx.fillRect(xRight + 2, yTop + 2, 3, 3)
+    ctx.fillRect(xLeft + 2, yBottom + 2, 3, 3)
+    ctx.fillRect(xRight + 2, yBottom + 2, 3, 3)
+  }
+
+  function drawBox(color, x, y) {
+    const background = Color.Box[color].Background
+    const border = Color.Box[color].Border
+    x = x * 40 + padding
+    y = y * 40 + padding
+    ctx.shadowBlur = 10
+    ctx.shadowColor = border
+    ctx.fillStyle = background
+    ctx.fillRect(x, y, boxSize, boxSize)
+    ctx.fillStyle = border
+    x += boxBorder
+    y += boxBorder
+    ctx.fillRect(x, y, boxSize - 2 * boxBorder, boxSize - 2 * boxBorder)
+    ctx.fillStyle = background
+    x += boxBorder
+    y += boxBorder
+    ctx.fillRect(x, y, boxSize - 4 * boxBorder, boxSize - 4 * boxBorder)
+    ctx.shadowBlur = 0
+  }
+}
