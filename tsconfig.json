@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "target": "ESNext"
+  , "module": "CommonJS"
+  , "jsx": "react-native"
+  , "strict": true
+  , "moduleResolution": "node"
+  , "skipLibCheck": true
+  , "esModuleInterop": true
+  , "baseUrl": "."
+  , "paths": {
+      "@src/*": ["src/*"]
+    , "@components/*": ["src/components/*"]
+    , "@screens/*": ["src/screens/*"]
+    , "@utils/*": ["src/utils/*"]
+    , "@test/*": ["__tests__/*"]
+    }
+  }
+}
