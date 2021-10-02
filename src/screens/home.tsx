@@ -4,6 +4,7 @@ import {
 , ScrollView
 , useColorScheme
 , View
+, Image
 } from 'react-native'
 import { NativeStackScreenProps, NativeStackNavigationProp } from '@react-navigation/native-stack'
 import { Button } from '../components/button'
@@ -28,12 +29,18 @@ export function Home(props: NativeStackScreenProps<any>) {
       }}
     >
       <View style={{
-        marginBottom: 16
+        marginBottom: 32
+      , alignItems: 'center'
       }}>
-        <Text style={{
-          textAlign: 'center'
-        , fontSize: 48
-        }}>Lights Out</Text>
+        <Image
+          style={{
+            width: 96
+          , height: 96
+          , marginBottom: 10
+          }}
+          source={require('../../assets/favicon.png')}
+        />
+        <Text style={{ fontSize: 40, fontFamily: 'serif', fontWeight: 'bold' }}>Lights Out</Text>
       </View>
       <View style={{
         alignItems: 'center'

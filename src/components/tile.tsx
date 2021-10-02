@@ -3,19 +3,19 @@ import { View, TouchableHighlight, StyleSheet } from 'react-native'
 
 const Styles = StyleSheet.create({
   0: {
-    backgroundColor: '#FCBCB5'
+    backgroundColor: '#0EA5E9'
   },
   1: {
-    backgroundColor: '#A7C6E8'
+    backgroundColor: '#84CC16'
   },
   2: {
-    backgroundColor: '#C4DEC1'
+    backgroundColor: '#F97316'
   },
   3: {
-    backgroundColor: '#FCEB54'
+    backgroundColor: '#A855F7'
   },
   4: {
-    backgroundColor: '#C3C3C3'
+    backgroundColor: '#64748B'
   }
 })
 
