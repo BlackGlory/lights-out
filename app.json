@@ -1,32 +1,32 @@
 {
   "expo": {
-    "name": "lights-out"
-  , "slug": "lights-out"
-  , "version": "1.0.0"
-  , "orientation": "portrait"
-  , "icon": "./assets/icon.png"
-  , "splash": {
-      "image": "./assets/splash.png"
-    , "resizeMode": "contain"
-    , "backgroundColor": "#ffffff"
-    }
-  , "updates": {
+    "name": "Lights Out",
+    "slug": "lights-out",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "updates": {
       "fallbackToCacheTimeout": 0
-    }
-  , "assetBundlePatterns": [
+    },
+    "assetBundlePatterns": [
       "**/*"
-    ]
-  , "ios": {
+    ],
+    "ios": {
       "supportsTablet": true
-    }
-  , "android": {
+    },
+    "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png"
-      , "backgroundColor": "#FFFFFF"
-      }
-    , "jsEngine": "hermes"
-    }
-  , "web": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#FFFFFF"
+      },
+      "package": "me.blackglory.lights_out"
+    },
+    "web": {
       "favicon": "./assets/favicon.png"
     }
   }
