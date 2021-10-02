@@ -25,7 +25,8 @@
         "backgroundColor": "#FFFFFF"
       },
       "package": "me.blackglory.lights_out",
-      "permissions": []
+      "permissions": [],
+      "versionCode": 2
     },
     "web": {
       "favicon": "./assets/favicon.png"
