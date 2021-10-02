@@ -10,7 +10,7 @@ import { Level5 } from './screens/level-5'
 
 const Stack = createNativeStackNavigator()
 
-export default function App() {
+export function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator>
