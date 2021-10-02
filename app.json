@@ -24,7 +24,8 @@
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
       },
-      "package": "me.blackglory.lights_out"
+      "package": "me.blackglory.lights_out",
+      "permissions": []
     },
     "web": {
       "favicon": "./assets/favicon.png"
