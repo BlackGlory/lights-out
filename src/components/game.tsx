@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from 'react'
+import React, { useState, useCallback, useEffect } from 'react'
 import { Text, View, Modal } from 'react-native'
 import { Button } from './button'
 import { Matrix } from './matrix'
@@ -26,6 +26,13 @@ export function Game(props: IGameProps) {
   const [steps, incrementSteps, resetSteps] = useIncrement(0)
   const [isWin, setWin] = useState(false)
   const [modalVisible, setModalVisible] = useState(false)
+
+  useEffect(() => {
+    if (!isWin && matrixEquals(matrix, goalMatrix)) {
+      setWin(true)
+      onWin?.(steps)
+    }
+  }, [matrix, isWin])
 
   return (
     <View style={{ alignItems: 'center' }}>
@@ -64,7 +71,7 @@ export function Game(props: IGameProps) {
           {(value, x, y) => (
             <Tile
               value={value as 0 | 1 | 2 | 3 | 4}
-              onClick={useCallback(() => onClick(x, y), [x, y])}
+              onClick={useCallback(() => onClick(x, y), [isWin, x, y])}
             />
           )}
         </Matrix>
@@ -92,11 +99,6 @@ export function Game(props: IGameProps) {
     </View>
   )
 
-  function win() {
-    setWin(true)
-    onWin?.(steps)
-  }
-
   function onClick(x: number, y: number) {
     if (isWin) return
 
@@ -118,10 +120,6 @@ export function Game(props: IGameProps) {
 
       if (y + 1 <= maxMatrixIndex) {
         updateValue(x, y + 1)
-      }
-
-      if (matrixEquals(matrix, goalMatrix)) {
-        win()
       }
 
       function updateValue(x: number, y: number) {
