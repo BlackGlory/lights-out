@@ -4,7 +4,7 @@ import { Button } from './button'
 import { Matrix } from './matrix'
 import { assert } from '@blackglory/errors'
 import { useImmer } from 'use-immer'
-import { useIncrement } from '../utils/use-increment'
+import { useIncrement } from 'extra-react-hooks'
 import { matrixEquals } from '../utils/matrix-equals'
 
 interface IGameProps {

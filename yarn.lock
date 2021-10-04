@@ -1155,10 +1155,10 @@
   resolved "https://registry.yarnpkg.com/@blackglory/errors/-/errors-1.1.2.tgz#0577f01ca13850049efa0dd729e1a26e77e1dc3a"
   integrity sha512-THXSkTUB5eXSn7Yj01TgizNqw2rRnkNj0t6drNtmGQNJRoh4qLdSD0WUiM6ClGgKTdaBJbAarRqG/6Gn/NjLig==
 
-"@blackglory/types@^0.4.7":
-  version "0.4.7"
-  resolved "https://registry.yarnpkg.com/@blackglory/types/-/types-0.4.7.tgz#c704911ec8f8fa09c5c9b1f51d57c80f6aad1dc2"
-  integrity sha512-IVD3Tts/iKT/O69NzNIUrkYy69lp33KEWWYPB5ZlF0IUmJJBIB9cM3m67oYArbpXoCa0HZKaCFQBvqjX8TbS7A==
+"@blackglory/types@^0.5.1":
+  version "0.5.1"
+  resolved "https://registry.yarnpkg.com/@blackglory/types/-/types-0.5.1.tgz#ef0290abd4b3c3e6a141ff45da6dc49bbb53d2f6"
+  integrity sha512-9bvd60w7CGPyFFcEYsqPu65+fj99Ga5TlgCZzsiP9A3nbP0+VR1WgUCaaGqmUZWg4fjuXbFWBAvdhNP2tNrX2g==
   dependencies:
     justypes "^0.1.5"
 
@@ -4500,13 +4500,13 @@ extglob@^2.0.4:
     snapdragon "^0.8.1"
     to-regex "^3.0.1"
 
-extra-react-hooks@^0.1.4:
-  version "0.1.4"
-  resolved "https://registry.yarnpkg.com/extra-react-hooks/-/extra-react-hooks-0.1.4.tgz#f0bf2c1d9f2304f07a1ba3385ff3f9c9fe86a76f"
-  integrity sha512-UbyZIKCK/bX3ONZXi6IZHKwyBnZY2A1TMXV8I08VGDWIc+jNnbHn+EMaEqgaPD3JLn7b4g7xh9Sy9f65BHOAnA==
+extra-react-hooks@^0.1.5:
+  version "0.1.5"
+  resolved "https://registry.yarnpkg.com/extra-react-hooks/-/extra-react-hooks-0.1.5.tgz#bd9570dc65bdd571c8913ead8bc1d8136fd75076"
+  integrity sha512-QPjSNpLHPbhbahZePH+BrICKCr1hg5Y00/B7TRSp1MDFHFEtH01LTi4Z9+CeAvGyriE+oWH1tdxPX9jKt3Iagg==
   dependencies:
     "@blackglory/errors" "^1.1.2"
-    "@blackglory/types" "^0.4.7"
+    "@blackglory/types" "^0.5.1"
 
 fancy-log@^1.3.2:
   version "1.3.3"

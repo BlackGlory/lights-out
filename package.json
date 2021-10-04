@@ -45,7 +45,7 @@
     "@react-navigation/native": "^6.0.4",
     "@react-navigation/native-stack": "^6.2.2",
     "expo": "~42.0.1",
-    "extra-react-hooks": "^0.1.4",
+    "extra-react-hooks": "^0.1.5",
     "immer": "^9.0.6",
     "react": "16.13.1",
     "react-dom": "16.13.1",
