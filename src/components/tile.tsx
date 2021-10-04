@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { memo } from 'react'
 import { View, TouchableHighlight, StyleSheet } from 'react-native'
 
 const Styles = StyleSheet.create({
@@ -19,7 +19,7 @@ const Styles = StyleSheet.create({
   }
 })
 
-export function Tile(props: {
+export const Tile = memo(function Tile(props: {
   value: 0 | 1 | 2 | 3 | 4
 , onClick?: () => void
 , children?: React.ReactNode
@@ -52,4 +52,4 @@ export function Tile(props: {
       }
     </View>
   )
-}
+})

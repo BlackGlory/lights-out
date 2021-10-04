@@ -1,14 +1,13 @@
 import React, { memo } from 'react'
 import { View } from 'react-native'
-import { Tile } from './tile'
 
 interface IMatrixProps {
-  matrix: (0 | 1 | 2 | 3 | 4)[][]
-  onClick?: (x: number, y: number) => void
+  matrix: number[][]
+  children: (value: number, x: number, y: number) => React.ReactNode
 }
 
 export const Matrix = memo(function Matrix(props: IMatrixProps) {
-  const { matrix, onClick } = props
+  const { matrix, children: renderCeil } = props
 
   return (
     <View style={{
@@ -26,10 +25,7 @@ export const Matrix = memo(function Matrix(props: IMatrixProps) {
               flex: 1
             , marginLeft: x === 0 ? 0 : '2.5%'
             }}>
-              <Tile
-                value={value}
-                onClick={onClick ? () => onClick(x, y) : undefined}
-              />
+              {renderCeil(value, x, y)}
             </View>
           ))}
         </View>
