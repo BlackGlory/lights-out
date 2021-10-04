@@ -1,6 +1,6 @@
 {
   "private": true,
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "src/entry.js",
   "scripts": {
     "lint": "eslint --ext .js,.jsx,.ts,.tsx --quiet src",
