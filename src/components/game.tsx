@@ -9,15 +9,15 @@ import { matrixEquals } from '../utils/matrix-equals'
 import { Tile } from './tile'
 
 interface IGameProps {
-  initialMatrix: (0 | 1 | 2 | 3 | 4)[][]
-  maxMatrixValue: 1 | 2 | 3 | 4
-  goalMatrix: (0 | 1 | 2 | 3 | 4)[][]
+  initialMatrix: number[][]
+  maxMatrixValue: number
+  goalMatrix: number[][]
   onWin?: (steps: number) => void
 }
 
 export function Game(props: IGameProps) {
   const { initialMatrix, maxMatrixValue, goalMatrix, onWin } = props
-  const [matrix, updateMatrix] = useImmer<(0 | 1 | 2 | 3 | 4)[][]>(initialMatrix)
+  const [matrix, updateMatrix] = useImmer<number[][]>(initialMatrix)
   const matrixHeight = matrix.length
   const matrixWidth = matrix[0].length
   assert(matrixWidth === matrixHeight, 'The height and width of matrix must be the same')
@@ -43,7 +43,7 @@ export function Game(props: IGameProps) {
               <View style={{ flex: 1 }}>
                 <Matrix matrix={initialMatrix}>
                   {useCallback(value => (
-                    <Tile value={value as 0 | 1 | 2 | 3 | 4} />
+                    <Tile value={value} />
                   ), [])}
                 </Matrix>
               </View>
@@ -51,7 +51,7 @@ export function Game(props: IGameProps) {
               <View style={{ flex: 1 }}>
                 <Matrix matrix={goalMatrix}>
                   {useCallback(value => (
-                    <Tile value={value as 0 | 1 | 2 | 3 | 4} />
+                    <Tile value={value} />
                   ), [])}
                 </Matrix>
               </View>
@@ -66,11 +66,11 @@ export function Game(props: IGameProps) {
         </View>
       </Modal>
 
-      <View>
+      <View testID='stage'>
         <Matrix matrix={matrix}>
           {(value, x, y) => (
             <Tile
-              value={value as 0 | 1 | 2 | 3 | 4}
+              value={value}
               onClick={useCallback(() => onClick(x, y), [isWin, x, y])}
             />
           )}
@@ -126,11 +126,11 @@ export function Game(props: IGameProps) {
         matrix[y][x] = getNextValue(matrix[y][x])
       }
 
-      function getNextValue(currentValue: 0 | 1 | 2 | 3 | 4): 0 | 1 | 2 | 3 | 4 {
+      function getNextValue(currentValue: number): number {
         const nextValue = currentValue === maxMatrixValue
                           ? 0
                           : currentValue + 1
-        return nextValue as 0 | 1 | 2 | 3 | 4
+        return nextValue
       }
     })
   }

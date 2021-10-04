@@ -1,5 +1,56 @@
 import React, { memo } from 'react'
 import { View, TouchableHighlight, StyleSheet } from 'react-native'
+import { assert } from '@blackglory/errors'
+
+export const Tile = memo(function Tile(props: {
+  value: number
+, onClick?: () => void
+}) {
+  const { value, onClick } = props
+  assert(isLegalValue(value))
+
+  return (
+    <View style={{
+      height: '100%'
+    , width: '100%'
+    }}>
+      {
+        onClick
+        ? (
+            <TouchableHighlight
+              accessibilityLabel='tile'
+              accessibilityRole='button'
+              accessibilityValue={{ now: value }}
+              onPress={onClick}
+            >
+              <View style={{
+                ...Styles[value]
+              , height: '100%'
+              , width: '100%'
+              }} />
+            </TouchableHighlight>
+          )
+        : (
+            <View
+              accessibilityLabel='tile'
+              accessibilityValue={{ now: value }}
+              style={{
+                ...Styles[value]
+              , height: '100%'
+              , width: '100%'
+              }}
+            />
+          )
+      }
+    </View>
+  )
+})
+
+function isLegalValue(value: number): value is keyof typeof Styles {
+  assert(Number.isInteger(value), 'The param value must be integer')
+  assert(value >= 0 && value <= 4, 'The param value must be between 0 and 4')
+  return true
+}
 
 const Styles = StyleSheet.create({
   0: {
@@ -17,39 +68,4 @@ const Styles = StyleSheet.create({
   4: {
     backgroundColor: '#64748B'
   }
-})
-
-export const Tile = memo(function Tile(props: {
-  value: 0 | 1 | 2 | 3 | 4
-, onClick?: () => void
-, children?: React.ReactNode
-}) {
-  const { value, onClick, children } = props
-
-  return (
-    <View style={{
-      height: '100%'
-    , width: '100%'
-    }}>
-      {
-        onClick
-        ? (
-          <TouchableHighlight onPress={onClick}>
-            <View style={{
-              ...Styles[value]
-            , height: '100%'
-            , width: '100%'
-            }}>{children}</View>
-          </TouchableHighlight>
-          )
-        : (
-            <View style={{
-              ...Styles[value]
-            , height: '100%'
-            , width: '100%'
-            }}>{children}</View>
-          )
-      }
-    </View>
-  )
 })

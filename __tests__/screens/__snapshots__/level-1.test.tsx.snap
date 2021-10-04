@@ -163,6 +163,12 @@ exports[`renders correctly 1`] = `
                               }
                             >
                               <View
+                                accessibilityLabel="tile"
+                                accessibilityValue={
+                                  Object {
+                                    "now": 0,
+                                  }
+                                }
                                 style={
                                   Object {
                                     "backgroundColor": "#0EA5E9",
@@ -190,6 +196,12 @@ exports[`renders correctly 1`] = `
                               }
                             >
                               <View
+                                accessibilityLabel="tile"
+                                accessibilityValue={
+                                  Object {
+                                    "now": 0,
+                                  }
+                                }
                                 style={
                                   Object {
                                     "backgroundColor": "#0EA5E9",
@@ -227,6 +239,12 @@ exports[`renders correctly 1`] = `
                               }
                             >
                               <View
+                                accessibilityLabel="tile"
+                                accessibilityValue={
+                                  Object {
+                                    "now": 0,
+                                  }
+                                }
                                 style={
                                   Object {
                                     "backgroundColor": "#0EA5E9",
@@ -254,6 +272,12 @@ exports[`renders correctly 1`] = `
                               }
                             >
                               <View
+                                accessibilityLabel="tile"
+                                accessibilityValue={
+                                  Object {
+                                    "now": 0,
+                                  }
+                                }
                                 style={
                                   Object {
                                     "backgroundColor": "#0EA5E9",
@@ -318,6 +342,12 @@ exports[`renders correctly 1`] = `
                               }
                             >
                               <View
+                                accessibilityLabel="tile"
+                                accessibilityValue={
+                                  Object {
+                                    "now": 1,
+                                  }
+                                }
                                 style={
                                   Object {
                                     "backgroundColor": "#84CC16",
@@ -345,6 +375,12 @@ exports[`renders correctly 1`] = `
                               }
                             >
                               <View
+                                accessibilityLabel="tile"
+                                accessibilityValue={
+                                  Object {
+                                    "now": 1,
+                                  }
+                                }
                                 style={
                                   Object {
                                     "backgroundColor": "#84CC16",
@@ -382,6 +418,12 @@ exports[`renders correctly 1`] = `
                               }
                             >
                               <View
+                                accessibilityLabel="tile"
+                                accessibilityValue={
+                                  Object {
+                                    "now": 1,
+                                  }
+                                }
                                 style={
                                   Object {
                                     "backgroundColor": "#84CC16",
@@ -409,6 +451,12 @@ exports[`renders correctly 1`] = `
                               }
                             >
                               <View
+                                accessibilityLabel="tile"
+                                accessibilityValue={
+                                  Object {
+                                    "now": 1,
+                                  }
+                                }
                                 style={
                                   Object {
                                     "backgroundColor": "#84CC16",
@@ -466,7 +514,9 @@ exports[`renders correctly 1`] = `
                 </View>
               </View>
             </Modal>
-            <View>
+            <View
+              testID="stage"
+            >
               <View
                 style={
                   Object {
@@ -501,6 +551,13 @@ exports[`renders correctly 1`] = `
                       }
                     >
                       <View
+                        accessibilityLabel="tile"
+                        accessibilityRole="button"
+                        accessibilityValue={
+                          Object {
+                            "now": 0,
+                          }
+                        }
                         accessible={true}
                         focusable={true}
                         onClick={[Function]}
@@ -540,6 +597,13 @@ exports[`renders correctly 1`] = `
                       }
                     >
                       <View
+                        accessibilityLabel="tile"
+                        accessibilityRole="button"
+                        accessibilityValue={
+                          Object {
+                            "now": 0,
+                          }
+                        }
                         accessible={true}
                         focusable={true}
                         onClick={[Function]}
@@ -589,6 +653,13 @@ exports[`renders correctly 1`] = `
                       }
                     >
                       <View
+                        accessibilityLabel="tile"
+                        accessibilityRole="button"
+                        accessibilityValue={
+                          Object {
+                            "now": 0,
+                          }
+                        }
                         accessible={true}
                         focusable={true}
                         onClick={[Function]}
@@ -628,6 +699,13 @@ exports[`renders correctly 1`] = `
                       }
                     >
                       <View
+                        accessibilityLabel="tile"
+                        accessibilityRole="button"
+                        accessibilityValue={
+                          Object {
+                            "now": 0,
+                          }
+                        }
                         accessible={true}
                         focusable={true}
                         onClick={[Function]}
