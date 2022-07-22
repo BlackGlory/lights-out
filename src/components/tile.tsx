@@ -7,7 +7,7 @@ export const Tile = memo(function Tile(props: {
 , onClick?: () => void
 }) {
   const { value, onClick } = props
-  assert(isLegalValue(value))
+  assert(isLegalValue(value), `${value} is not a legal value`)
 
   return (
     <View style={{

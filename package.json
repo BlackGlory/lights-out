@@ -5,6 +5,7 @@
   "scripts": {
     "lint": "eslint --ext .js,.jsx,.ts,.tsx --quiet src",
     "test": "jest",
+    "build": "tsc --noEmit",
     "start": "expo start",
     "android": "expo start --android",
     "android:build": "expo build:android",
@@ -15,7 +16,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "run-s lint test",
+      "pre-commit": "run-s lint build test",
       "commit-msg": "commitlint --env HUSKY_GIT_PARAMS"
     }
   },
