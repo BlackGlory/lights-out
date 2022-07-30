@@ -3,8 +3,17 @@ import { Alert } from 'react-native'
 import { NativeStackScreenProps } from '@react-navigation/native-stack'
 import { Game } from '../components/game'
 import { CenterView } from '../components/center-view'
+import { IHomeParams } from './home'
+import { ILevel5Params } from './level-5'
 
-export function Level4(props: NativeStackScreenProps<any>) {
+export interface ILevel4Params {}
+
+export function Level4(
+  props: NativeStackScreenProps<{
+    'Home': IHomeParams
+    'Level 5': ILevel5Params
+  }>
+) {
   const { navigation } = props
 
   return (
@@ -25,7 +34,7 @@ export function Level4(props: NativeStackScreenProps<any>) {
         , [1, 1, 1, 1, 1]
         ]}
         maxMatrixValue={1}
-        onWin={steps => {
+        onPlayerWin={steps => {
           Alert.alert(
             'You Win!'
           , `Steps: ${steps}`

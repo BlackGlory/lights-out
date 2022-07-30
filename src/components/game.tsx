@@ -12,11 +12,11 @@ interface IGameProps {
   initialMatrix: number[][]
   maxMatrixValue: number
   goalMatrix: number[][]
-  onWin?: (steps: number) => void
+  onPlayerWin?: (steps: number) => void
 }
 
 export function Game(props: IGameProps) {
-  const { initialMatrix, maxMatrixValue, goalMatrix, onWin } = props
+  const { initialMatrix, maxMatrixValue, goalMatrix, onPlayerWin: onWin } = props
   const [matrix, updateMatrix] = useImmer<number[][]>(initialMatrix)
   const matrixHeight = matrix.length
   const matrixWidth = matrix[0].length
@@ -24,15 +24,15 @@ export function Game(props: IGameProps) {
   const maxMatrixIndex = matrix.length - 1
 
   const [steps, incrementSteps, resetSteps] = useIncrement(0)
-  const [isWin, setWin] = useState(false)
+  const [playerWins, setPlayerWins] = useState(false)
   const [modalVisible, setModalVisible] = useState(false)
 
   useEffect(() => {
-    if (!isWin && matrixEquals(matrix, goalMatrix)) {
-      setWin(true)
+    if (!playerWins && matrixEquals(matrix, goalMatrix)) {
+      setPlayerWins(true)
       onWin?.(steps)
     }
-  }, [matrix, isWin])
+  }, [matrix, playerWins])
 
   return (
     <View style={{ alignItems: 'center' }}>
@@ -68,12 +68,15 @@ export function Game(props: IGameProps) {
 
       <View testID='stage'>
         <Matrix matrix={matrix}>
-          {(value, x, y) => (
+          {useCallback((value, x, y) => (
             <Tile
               value={value}
-              onClick={useCallback(() => onClick(x, y), [isWin, x, y])}
+              onClick={useCallback(
+                () => onClick(x, y)
+              , [playerWins, x, y]
+              )}
             />
-          )}
+          ), [playerWins])}
         </Matrix>
       </View>
 
@@ -90,7 +93,7 @@ export function Game(props: IGameProps) {
             onPress={() => {
               resetSteps()
               updateMatrix(initialMatrix)
-              setWin(false)
+              setPlayerWins(false)
             }}
             title='Reset' 
           />
@@ -100,7 +103,7 @@ export function Game(props: IGameProps) {
   )
 
   function onClick(x: number, y: number) {
-    if (isWin) return
+    if (playerWins) return
 
     updateMatrix(matrix => {
       incrementSteps()

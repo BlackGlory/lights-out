@@ -8,8 +8,23 @@ import {
 } from 'react-native'
 import { NativeStackScreenProps, NativeStackNavigationProp } from '@react-navigation/native-stack'
 import { Button } from '../components/button'
+import { ILevel1Params } from './level-1'
+import { ILevel2Params } from './level-2'
+import { ILevel3Params } from './level-3'
+import { ILevel4Params } from './level-4'
+import { ILevel5Params } from './level-5'
 
-export function Home(props: NativeStackScreenProps<any>) {
+export interface IHomeParams {}
+
+export function Home(
+  props: NativeStackScreenProps<{
+    'Level 1': ILevel1Params
+    'Level 2': ILevel2Params
+    'Level 3': ILevel3Params
+    'Level 4': ILevel4Params
+    'Level 5': ILevel5Params
+  }>
+) {
   const { navigation } = props
   const isDarkMode = useColorScheme() === 'dark'
 

@@ -141,7 +141,7 @@ describe('Game', () => {
         initialMatrix={initalMatrix}
         goalMatrix={goalMatrix}
         maxMatrixValue={2}
-        onWin={onWin}
+        onPlayerWin={onWin}
       />
     )
     const tiles = within(getByTestId('stage')).getAllByA11yLabel('tile')
