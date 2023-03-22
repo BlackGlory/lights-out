@@ -8,7 +8,7 @@
     "build": "tsc --noEmit",
     "start": "expo start",
     "android": "expo start --android",
-    "android:build": "expo build:android",
+    "android:build": "eas build --platform android --local",
     "ios": "expo start --ios",
     "web": "expo start --web",
     "eject": "expo eject",
