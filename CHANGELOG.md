@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.2](https://github.com/BlackGlory/lights-out/compare/v1.0.1...v1.0.2) (2023-03-22)
+
+
+### Bug Fixes
+
+* build ([b334827](https://github.com/BlackGlory/lights-out/commit/b3348272571ce3eb175b5b4f94d07cc473466c2f))
+
 ### [1.0.1](https://github.com/BlackGlory/lights-out/compare/v1.0.0...v1.0.1) (2021-10-04)
 
 
