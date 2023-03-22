@@ -10,7 +10,7 @@ test('Matrix', () => {
   , [3, 4]
   ]
 
-  const { getByA11yLabel } = render(
+  const { getByLabelText } = render(
     <Matrix matrix={matrix}>
       {(value, x, y) => (
         <Text accessibilityLabel={`${x},${y}`}>{value}</Text>
@@ -18,8 +18,8 @@ test('Matrix', () => {
     </Matrix>
   )
 
-  expect(getByA11yLabel('0,0')).toHaveTextContent('1')
-  expect(getByA11yLabel('1,0')).toHaveTextContent('2')
-  expect(getByA11yLabel('0,1')).toHaveTextContent('3')
-  expect(getByA11yLabel('1,1')).toHaveTextContent('4')
+  expect(getByLabelText('0,0')).toHaveTextContent('1')
+  expect(getByLabelText('1,0')).toHaveTextContent('2')
+  expect(getByLabelText('0,1')).toHaveTextContent('3')
+  expect(getByLabelText('1,1')).toHaveTextContent('4')
 })

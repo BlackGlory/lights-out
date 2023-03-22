@@ -22,7 +22,7 @@ describe('Game', () => {
       />
     )
 
-    const tiles = within(getByTestId('stage')).getAllByA11yLabel('tile')
+    const tiles = within(getByTestId('stage')).getAllByLabelText('tile')
     expect(tiles).toHaveLength(4)
     expect(tiles[0]).toHaveProp('accessibilityValue', { now: 1 })
     expect(tiles[1]).toHaveProp('accessibilityValue', { now: 1 })
@@ -49,7 +49,7 @@ describe('Game', () => {
           maxMatrixValue={4}
         />
       )
-      const tiles = within(getByTestId('stage')).getAllByA11yLabel('tile')
+      const tiles = within(getByTestId('stage')).getAllByLabelText('tile')
       fireEvent.press(tiles[3])
 
       expect(tiles).toHaveLength(4)
@@ -79,7 +79,7 @@ describe('Game', () => {
           maxMatrixValue={4}
         />
       )
-      const tiles = within(getByTestId('stage')).getAllByA11yLabel('tile')
+      const tiles = within(getByTestId('stage')).getAllByLabelText('tile')
       fireEvent.press(tiles[4])
 
       expect(tiles).toHaveLength(9)
@@ -113,7 +113,7 @@ describe('Game', () => {
         maxMatrixValue={4}
       />
     )
-    const tiles = within(getByTestId('stage')).getAllByA11yLabel('tile')
+    const tiles = within(getByTestId('stage')).getAllByLabelText('tile')
     fireEvent.press(tiles[3])
     fireEvent.press(getByText('Reset'))
 
@@ -144,7 +144,7 @@ describe('Game', () => {
         onPlayerWin={onWin}
       />
     )
-    const tiles = within(getByTestId('stage')).getAllByA11yLabel('tile')
+    const tiles = within(getByTestId('stage')).getAllByLabelText('tile')
     fireEvent.press(tiles[3])
 
     expect(getByText(/Steps: \d+/)).toHaveTextContent('Steps: 1')
