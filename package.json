@@ -9,6 +9,7 @@
     "start": "expo start",
     "android": "expo start --android",
     "android:build": "eas build --platform android --local",
+    "android:preview": "eas build --platform android --local --profile preview",
     "ios": "expo start --ios",
     "web": "expo start --web",
     "eject": "expo eject",
