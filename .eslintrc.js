@@ -6,10 +6,15 @@ module.exports = {
   }
 , plugins: [
     '@typescript-eslint'
+  , 'react'
+  , 'react-hooks'
   ]
 , extends: [
     'eslint:recommended'
   , 'plugin:@typescript-eslint/recommended'
+  , 'plugin:react/recommended'
+  , 'plugin:react/jsx-runtime'
+  , 'plugin:react-hooks/recommended'
   ]
 , rules: {
     'no-useless-escape': 'off'
@@ -18,5 +23,10 @@ module.exports = {
   , '@typescript-eslint/no-var-requires': 'off'
   , '@typescript-eslint/explicit-module-boundary-types': 'off'
   , '@typescript-eslint/no-empty-interface': 'off'
+  }
+, settings: {
+    react: {
+      'version': 'detect'
+    }
   }
 }

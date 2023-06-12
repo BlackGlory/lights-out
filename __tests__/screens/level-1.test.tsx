@@ -1,4 +1,3 @@
-import React from 'react'
 import { Level1 } from '../../src/screens/level-1'
 import { render } from '@testing-library/react-native'
 import { NavigationContainer } from '@react-navigation/native'

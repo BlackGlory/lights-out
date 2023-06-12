@@ -1,4 +1,3 @@
-import React from 'react'
 import { Matrix } from '../../src/components/matrix'
 import { Text } from 'react-native'
 import { render } from '@testing-library/react-native'

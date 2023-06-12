@@ -1,4 +1,3 @@
-import React from 'react'
 import { Home } from '../../src/screens/home'
 import { render } from '@testing-library/react-native'
 import { NavigationContainer } from '@react-navigation/native'

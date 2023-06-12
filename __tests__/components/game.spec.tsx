@@ -1,4 +1,3 @@
-import React from 'react'
 import { Game } from '../../src/components/game'
 import { render, within, fireEvent } from '@testing-library/react-native'
 import '@testing-library/jest-native'

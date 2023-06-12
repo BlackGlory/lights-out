@@ -1,4 +1,3 @@
-import React from 'react'
 import { View, StyleProp, ViewStyle, StyleSheet } from 'react-native'
 
 interface ICenterViewProps {

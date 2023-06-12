@@ -1,4 +1,4 @@
-import React, { memo } from 'react'
+import { memo } from 'react'
 import { View, TouchableHighlight, StyleSheet } from 'react-native'
 import { assert } from '@blackglory/errors'
 

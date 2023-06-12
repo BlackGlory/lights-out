@@ -1,4 +1,4 @@
-import React, { useState, useCallback, useEffect } from 'react'
+import { useState, useCallback, useEffect } from 'react'
 import { Text, View, Modal } from 'react-native'
 import { Button } from './button'
 import { Matrix } from './matrix'
@@ -71,10 +71,7 @@ export function Game(props: IGameProps) {
           {useCallback((value, x, y) => (
             <Tile
               value={value}
-              onClick={useCallback(
-                () => onClick(x, y)
-              , [playerWins, x, y]
-              )}
+              onClick={() => onClick(x, y)}
             />
           ), [playerWins])}
         </Matrix>

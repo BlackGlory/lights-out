@@ -1,4 +1,3 @@
-import React from 'react'
 import { Alert } from 'react-native'
 import { NativeStackScreenProps } from '@react-navigation/native-stack'
 import { Game } from '../components/game'

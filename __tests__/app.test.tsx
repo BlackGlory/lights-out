@@ -1,4 +1,3 @@
-import React from 'react'
 import { App } from '../src/app'
 import { render } from '@testing-library/react-native'
 
