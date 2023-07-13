@@ -1,5 +1,5 @@
 import { Game } from '../../src/components/game'
-import { render, within, fireEvent } from '@testing-library/react-native'
+import { render, within, fireEvent, screen } from '@testing-library/react-native'
 import '@testing-library/jest-native'
 
 describe('Game', () => {
@@ -13,7 +13,7 @@ describe('Game', () => {
     , [4, 4]
     ]
 
-    const { getByTestId, getByText } = render(
+    render(
       <Game
         initialMatrix={initalMatrix}
         goalMatrix={goalMatrix}
@@ -21,13 +21,13 @@ describe('Game', () => {
       />
     )
 
-    const tiles = within(getByTestId('stage')).getAllByLabelText('tile')
+    const tiles = within(screen.getByTestId('stage')).getAllByLabelText('tile')
     expect(tiles).toHaveLength(4)
     expect(tiles[0]).toHaveProp('accessibilityValue', { now: 1 })
     expect(tiles[1]).toHaveProp('accessibilityValue', { now: 1 })
     expect(tiles[2]).toHaveProp('accessibilityValue', { now: 1 })
     expect(tiles[3]).toHaveProp('accessibilityValue', { now: 1 })
-    expect(getByText(/Steps: \d+/)).toHaveTextContent('Steps: 0')
+    expect(screen.getByText(/Steps: \d+/)).toHaveTextContent('Steps: 0')
   })
 
   describe('click the tile', () => {
@@ -41,14 +41,14 @@ describe('Game', () => {
       , [4, 4]
       ]
 
-      const { getByTestId, getByText } = render(
+      render(
         <Game
           initialMatrix={initalMatrix}
           goalMatrix={goalMatrix}
           maxMatrixValue={4}
         />
       )
-      const tiles = within(getByTestId('stage')).getAllByLabelText('tile')
+      const tiles = within(screen.getByTestId('stage')).getAllByLabelText('tile')
       fireEvent.press(tiles[3])
 
       expect(tiles).toHaveLength(4)
@@ -56,7 +56,7 @@ describe('Game', () => {
       expect(tiles[1]).toHaveProp('accessibilityValue', { now: 2 })
       expect(tiles[2]).toHaveProp('accessibilityValue', { now: 1 })
       expect(tiles[3]).toHaveProp('accessibilityValue', { now: 0 })
-      expect(getByText(/Steps: \d+/)).toHaveTextContent('Steps: 1')
+      expect(screen.getByText(/Steps: \d+/)).toHaveTextContent('Steps: 1')
     })
 
     test('3x3', () => {
@@ -71,14 +71,14 @@ describe('Game', () => {
       , [4, 4, 4]
       ]
 
-      const { getByTestId, getByText } = render(
+      render(
         <Game
           initialMatrix={initalMatrix}
           goalMatrix={goalMatrix}
           maxMatrixValue={4}
         />
       )
-      const tiles = within(getByTestId('stage')).getAllByLabelText('tile')
+      const tiles = within(screen.getByTestId('stage')).getAllByLabelText('tile')
       fireEvent.press(tiles[4])
 
       expect(tiles).toHaveLength(9)
@@ -91,7 +91,7 @@ describe('Game', () => {
       expect(tiles[6]).toHaveProp('accessibilityValue', { now: 1 })
       expect(tiles[7]).toHaveProp('accessibilityValue', { now: 0 })
       expect(tiles[8]).toHaveProp('accessibilityValue', { now: 1 })
-      expect(getByText(/Steps: \d+/)).toHaveTextContent('Steps: 1')
+      expect(screen.getByText(/Steps: \d+/)).toHaveTextContent('Steps: 1')
     })
   })
 
@@ -105,23 +105,23 @@ describe('Game', () => {
     , [4, 4]
     ]
 
-    const { getByTestId, getByText } = render(
+    render(
       <Game
         initialMatrix={initalMatrix}
         goalMatrix={goalMatrix}
         maxMatrixValue={4}
       />
     )
-    const tiles = within(getByTestId('stage')).getAllByLabelText('tile')
+    const tiles = within(screen.getByTestId('stage')).getAllByLabelText('tile')
     fireEvent.press(tiles[3])
-    fireEvent.press(getByText('Reset'))
+    fireEvent.press(screen.getByText('Reset'))
 
     expect(tiles).toHaveLength(4)
     expect(tiles[0]).toHaveProp('accessibilityValue', { now: 1 })
     expect(tiles[1]).toHaveProp('accessibilityValue', { now: 1 })
     expect(tiles[2]).toHaveProp('accessibilityValue', { now: 1 })
     expect(tiles[3]).toHaveProp('accessibilityValue', { now: 1 })
-    expect(getByText(/Steps: \d+/)).toHaveTextContent('Steps: 0')
+    expect(screen.getByText(/Steps: \d+/)).toHaveTextContent('Steps: 0')
   })
 
   test('win', () => {
@@ -135,7 +135,7 @@ describe('Game', () => {
     , [2, 2]
     ]
 
-    const { getByTestId, getByText } = render(
+    render(
       <Game
         initialMatrix={initalMatrix}
         goalMatrix={goalMatrix}
@@ -143,10 +143,10 @@ describe('Game', () => {
         onPlayerWin={onWin}
       />
     )
-    const tiles = within(getByTestId('stage')).getAllByLabelText('tile')
+    const tiles = within(screen.getByTestId('stage')).getAllByLabelText('tile')
     fireEvent.press(tiles[3])
 
-    expect(getByText(/Steps: \d+/)).toHaveTextContent('Steps: 1')
+    expect(screen.getByText(/Steps: \d+/)).toHaveTextContent('Steps: 1')
     expect(onWin).toBeCalledTimes(1)
     expect(onWin).toBeCalledWith(1)
   })
