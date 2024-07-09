@@ -21,7 +21,6 @@ exports[`renders correctly 1`] = `
   >
     <RNSScreen
       collapsable={false}
-      forwardedRef={[Function]}
       gestureResponseDistance={
         {
           "bottom": -1,
@@ -30,15 +29,23 @@ exports[`renders correctly 1`] = `
           "top": -1,
         }
       }
+      hasLargeHeader={false}
       nativeBackButtonDismissalEnabled={false}
       onAppear={[Function]}
       onDisappear={[Function]}
       onDismissed={[Function]}
+      onGestureCancel={[Function]}
       onHeaderBackButtonClicked={[Function]}
       onNativeDismissCancelled={[Function]}
       onTransitionProgress={[Function]}
+      onWillAppear={[Function]}
       onWillDisappear={[Function]}
       replaceAnimation="push"
+      sheetAllowedDetents="large"
+      sheetCornerRadius={-1}
+      sheetExpandsWhenScrolledToEdge={true}
+      sheetGrabberVisible={false}
+      sheetLargestUndimmedDetent="all"
       stackPresentation="push"
       style={
         {
@@ -51,20 +58,6 @@ exports[`renders correctly 1`] = `
       }
       swipeDirection="horizontal"
     >
-      <RNSScreenStackHeaderConfig
-        backButtonInCustomView={false}
-        backgroundColor="rgb(255, 255, 255)"
-        color="rgb(0, 122, 255)"
-        direction="ltr"
-        disableBackButtonMenu={false}
-        hidden={false}
-        hideBackButton={false}
-        largeTitleHideShadow={false}
-        title="Screen"
-        titleColor="rgb(28, 28, 30)"
-        topInsetEnabled={false}
-        translucent={false}
-      />
       <View
         accessibilityElementsHidden={false}
         importantForAccessibility="auto"
@@ -76,6 +69,7 @@ exports[`renders correctly 1`] = `
         }
       >
         <View
+          collapsable={false}
           style={
             [
               {
@@ -385,6 +379,21 @@ exports[`renders correctly 1`] = `
           </RCTScrollView>
         </View>
       </View>
+      <RNSScreenStackHeaderConfig
+        backButtonInCustomView={false}
+        backTitleVisible={true}
+        backgroundColor="rgb(255, 255, 255)"
+        color="rgb(0, 122, 255)"
+        direction="ltr"
+        disableBackButtonMenu={false}
+        hidden={false}
+        hideBackButton={false}
+        largeTitleHideShadow={false}
+        title="Screen"
+        titleColor="rgb(28, 28, 30)"
+        topInsetEnabled={false}
+        translucent={false}
+      />
     </RNSScreen>
   </RNSScreenStack>
 </RNCSafeAreaProvider>
