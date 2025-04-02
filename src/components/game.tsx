@@ -16,7 +16,7 @@ interface IGameProps {
 }
 
 export function Game(props: IGameProps) {
-  const { initialMatrix, maxMatrixValue, goalMatrix, onPlayerWin: onWin } = props
+  const { initialMatrix, maxMatrixValue, goalMatrix, onPlayerWin } = props
   const [matrix, updateMatrix] = useImmer<number[][]>(initialMatrix)
   const matrixHeight = matrix.length
   const matrixWidth = matrix[0].length
@@ -27,10 +27,13 @@ export function Game(props: IGameProps) {
   const [playerWins, setPlayerWins] = useState(false)
   const [modalVisible, setModalVisible] = useState(false)
 
+  // 先渲染最新状态, 再检查玩家是否获胜.
   useEffect(() => {
-    if (!playerWins && matrixEquals(matrix, goalMatrix)) {
-      setPlayerWins(true)
-      onWin?.(steps)
+    if (!playerWins) {
+      if (matrixEquals(matrix, goalMatrix)) {
+        setPlayerWins(true)
+        onPlayerWin?.(steps)
+      }
     }
   }, [matrix, playerWins])
 
@@ -92,7 +95,7 @@ export function Game(props: IGameProps) {
               updateMatrix(initialMatrix)
               setPlayerWins(false)
             }}
-            title='Reset' 
+            title='Reset'
           />
         </View>
       </View>
