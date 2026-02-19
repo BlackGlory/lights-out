@@ -2,9 +2,10 @@ import { Matrix } from '../../src/components/matrix'
 import { Text } from 'react-native'
 import { render, screen } from '@testing-library/react-native'
 import '@testing-library/jest-native'
+import { IMatrix } from '../../src/types'
 
 test('Matrix', () => {
-  const matrix = [
+  const matrix: IMatrix = [
     [1, 2]
   , [3, 4]
   ]

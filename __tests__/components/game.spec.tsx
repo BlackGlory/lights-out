@@ -1,14 +1,15 @@
 import { Game } from '../../src/components/game'
 import { render, within, fireEvent, screen } from '@testing-library/react-native'
 import '@testing-library/jest-native'
+import { IMatrix } from '../../src/types'
 
 describe('Game', () => {
   test('init', () => {
-    const initalMatrix = [
+    const initalMatrix: IMatrix = [
       [1, 1]
     , [1, 1]
     ]
-    const goalMatrix = [
+    const goalMatrix: IMatrix = [
       [4, 4]
     , [4, 4]
     ]
@@ -32,11 +33,11 @@ describe('Game', () => {
 
   describe('click the tile', () => {
     test('2x2', () => {
-      const initalMatrix = [
+      const initalMatrix: IMatrix = [
         [1, 1]
       , [0, 4]
       ]
-      const goalMatrix = [
+      const goalMatrix: IMatrix = [
         [4, 4]
       , [4, 4]
       ]
@@ -60,12 +61,12 @@ describe('Game', () => {
     })
 
     test('3x3', () => {
-      const initalMatrix = [
+      const initalMatrix: IMatrix = [
         [1, 4, 1]
       , [1, 0, 1]
       , [1, 4, 1]
       ]
-      const goalMatrix = [
+      const goalMatrix: IMatrix = [
         [4, 4, 4]
       , [4, 4, 4]
       , [4, 4, 4]
@@ -96,11 +97,11 @@ describe('Game', () => {
   })
 
   test('reset', () => {
-    const initalMatrix = [
+    const initalMatrix: IMatrix = [
       [1, 1]
     , [1, 1]
     ]
-    const goalMatrix = [
+    const goalMatrix: IMatrix = [
       [4, 4]
     , [4, 4]
     ]
@@ -126,11 +127,11 @@ describe('Game', () => {
 
   test('win', () => {
     const onWin = jest.fn()
-    const initalMatrix = [
+    const initalMatrix: IMatrix = [
       [1, 1]
     , [1, 1]
     ]
-    const goalMatrix = [
+    const goalMatrix: IMatrix = [
       [1, 2]
     , [2, 2]
     ]

@@ -1,8 +1,9 @@
 import { memo } from 'react'
 import { View } from 'react-native'
+import { IMatrix } from '../types'
 
 interface IMatrixProps {
-  matrix: number[][]
+  matrix: IMatrix
   children: (value: number, x: number, y: number) => React.ReactNode
 }
 

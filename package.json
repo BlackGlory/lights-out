@@ -52,6 +52,7 @@
     "expo": "^51.0.18",
     "extra-react-hooks": "^0.6.9",
     "immer": "^10.1.1",
+    "justypes": "^4.5.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-native": "0.74.3",

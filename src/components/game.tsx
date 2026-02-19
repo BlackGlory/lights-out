@@ -7,17 +7,18 @@ import { useImmer } from 'use-immer'
 import { useIncrement } from 'extra-react-hooks'
 import { matrixEquals } from '../utils/matrix-equals'
 import { Tile } from './tile'
+import { IMatrix } from '../types'
 
 interface IGameProps {
-  initialMatrix: number[][]
+  initialMatrix: IMatrix
   maxMatrixValue: number
-  goalMatrix: number[][]
+  goalMatrix: IMatrix
   onPlayerWin?: (steps: number) => void
 }
 
 export function Game(props: IGameProps) {
   const { initialMatrix, maxMatrixValue, goalMatrix, onPlayerWin } = props
-  const [matrix, updateMatrix] = useImmer<number[][]>(initialMatrix)
+  const [matrix, updateMatrix] = useImmer<IMatrix>(initialMatrix)
   const matrixHeight = matrix.length
   const matrixWidth = matrix[0].length
   assert(matrixWidth === matrixHeight, 'The height and width of matrix must be the same')
